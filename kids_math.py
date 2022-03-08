@@ -1,4 +1,6 @@
 from random import randrange
+import time
+
 class bcolors:
     BLUE = '\033[94m'
     CYAN = '\033[96m'
@@ -24,37 +26,30 @@ def getnumber():
   number = randrange(1,12,1)
   return number
 
-def getpracticenum():
+def getkidsnumber(question):
      while True:
-          factor = input( "Now what number would you like to practice with ")
+          answer = input(question)
           try  :
-              number = int(factor[0])
+              number = int(answer)
               print ("Using ", number)
               return number
               break
           except  ValueError:
-              print(factor, " is not a number!")
-
-  # if int(factor[0]):
-  #     number = int(factor[0])
-  #     print ("Using ", number,)
-  #     return number
-  #     break
-  # else:
-  #   print ("Be sure to enter a single number.")
+              print(answer, " is not a number!")
 
 
 def multiply(child):
     if child == "o" :
          print ("Ok Olive, we are going to practice multiplcation")
-         multiplier = int(getpracticenum())
+         time.sleep(1)
+         multiplier = getkidsnumber("What number would you like to practice with? ")
          start = 0
          goodanswers = 0
          while start < 5:
               product = int(getnumber())
               divisor = product * multiplier
               print ("What is " , divisor , " divided by " , multiplier , " ?")
-              kidsanswer = int(input("Enter your answer: " ))
+              kidsanswer = getkidsnumber("Enter your Answer: ")
               correctanswer = int(divisor / multiplier)
 
               if kidsanswer == correctanswer:
@@ -69,14 +64,14 @@ def multiply(child):
               print()
     else:
       print ("Ok Super Wilder, we are going to practice adding")
-      adder = int(getpracticenum())
+      adder = getkidsnumber("What number would you like to practice with? ")
       start = 0
       goodanswers = 0
       while start < 5:
               randomnum = int(getnumber())
               sumnum = adder + randomnum
               print ("What is " , adder , "  plus " , randomnum , " ?")
-              kidsanswer = int(input("Enter your answer: " ))
+              kidsanswer = getkidsnumber("Enter your Answer: ")
               correctanswer = int(sumnum)
 
               if kidsanswer == correctanswer:
@@ -90,5 +85,5 @@ def multiply(child):
               print ("You've got " , goodanswers , "out of 5!")
               print()
 
-
-multiply(whois())
+if __name__== '__main__':
+    multiply(whois())
