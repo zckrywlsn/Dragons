@@ -1,6 +1,6 @@
 
 def whois():
-  while True
+  while True:
   answer = int(input("Hello who are you? "))
   if answer == "Olive" || "olive" :
       print ("Hello Olive. Get ready for some math! ")
