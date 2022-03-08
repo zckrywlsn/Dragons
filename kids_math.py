@@ -1,14 +1,19 @@
 from random import randrange
+class bcolors:
+    BLUE = '\033[94m'
+    CYAN = '\033[96m'
+    WARN = '\033[93m'
+    ENDC = '\033[0m'
 
 def whois():
   while True:
       answer = input("Hello who are you? ")
       if answer == "Olive" or answer == "olive" :
-          print ("Hello Olive. Get ready for some math! ")
+          print ("Hello Super Olive. Get ready for some math! ")
           answer = "o"
           break
       elif answer == "Wilder" or answer == "wilder" :
-          print ("Hellow Wilder. Get ready for some math! ")
+          print ("Hello Super Wilder. Get ready for some math! ")
           answer = "w"
           break
       else:
@@ -21,10 +26,10 @@ def getnumber():
 
 def getpracticenum():
  while True:
-          factor = input( "Now what times tables would you like to practice ")
+          factor = input( "Now what number would you like to practice with")
           if int(factor[0]):
               number = int(factor[0])
-              print (" Using the ", number, " times tables.")
+              print ("Using the ", number, " times tables.")
               return number
               break
           else:
@@ -45,15 +50,39 @@ def multiply(child):
               correctanswer = int(divisor / multiplier)
 
               if kidsanswer == correctanswer:
-                  print ("Hurrah!! You are correct!!")
+                  print (f"{bcolors.BLUE}Hurrah!! You are correct!!{bcolors.ENDC}")
                   goodanswers += 1
               else :
-                  print ("The correct answer is " , correctanswer)
+                  print (f"{bcolors.WARN}Sorry. The correct answer is... {bcolors.ENDC}")
+                  print (correctanswer)
             
               start += 1
-              print ("You got " , goodanswers , "out of 5!")
+              print ("You've got " , goodanswers , "out of 5!")
+              print()
     else:
       print ("child was defined: ", child)
+      print ("Ok Super Wilder, we are going to practice adding")
+      adder = int(getpracticenum())
+      start = 0
+      goodanswers = 0
+      while start < 5:
+              randomnum = int(getnumber())
+              sumnum = adder + randomnum
+              print ("What is " , adder , "  plus " , randomnum , " ?")
+              kidsanswer = int(input("Enter your answer: " ))
+              correctanswer = int(sumnum)
+
+              if kidsanswer == correctanswer:
+                  print (f"{bcolors.BLUE}Hurrah!! You are correct!!{bcolors.ENDC}")
+                  goodanswers += 1
+              else :
+                  print (f"{bcolors.WARN}Sorry. The correct answer is... {bcolors.ENDC}")
+                  print (correctanswer)
+            
+              start += 1
+              print ("You've got " , goodanswers , "out of 5!")
+              print()
+
 
 multiply(whois())
     
