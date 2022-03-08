@@ -26,10 +26,10 @@ def getnumber():
 
 def getpracticenum():
  while True:
-          factor = input( "Now what number would you like to practice with")
+          factor = input( "Now what number would you like to practice with ")
           if int(factor[0]):
               number = int(factor[0])
-              print ("Using the ", number, " times tables.")
+              print ("Using ", number,)
               return number
               break
           else:
