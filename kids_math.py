@@ -25,19 +25,27 @@ def getnumber():
   return number
 
 def getpracticenum():
- while True:
+     while True:
           factor = input( "Now what number would you like to practice with ")
-          if int(factor[0]):
+          try  :
               number = int(factor[0])
-              print ("Using ", number,)
+              print ("Using ", number)
               return number
               break
-          else:
-            print ("Be sure to enter a single number.")
+          except  ValueError:
+              print(factor, " is not a number!")
+
+  # if int(factor[0]):
+  #     number = int(factor[0])
+  #     print ("Using ", number,)
+  #     return number
+  #     break
+  # else:
+  #   print ("Be sure to enter a single number.")
 
 
 def multiply(child):
-    if child == "o" :  
+    if child == "o" :
          print ("Ok Olive, we are going to practice multiplcation")
          multiplier = int(getpracticenum())
          start = 0
@@ -55,12 +63,11 @@ def multiply(child):
               else :
                   print (f"{bcolors.WARN}Sorry. The correct answer is... {bcolors.ENDC}")
                   print (correctanswer)
-            
+
               start += 1
               print ("You've got " , goodanswers , "out of 5!")
               print()
     else:
-      print ("child was defined: ", child)
       print ("Ok Super Wilder, we are going to practice adding")
       adder = int(getpracticenum())
       start = 0
@@ -78,12 +85,10 @@ def multiply(child):
               else :
                   print (f"{bcolors.WARN}Sorry. The correct answer is... {bcolors.ENDC}")
                   print (correctanswer)
-            
+
               start += 1
               print ("You've got " , goodanswers , "out of 5!")
               print()
 
 
 multiply(whois())
-    
-    
